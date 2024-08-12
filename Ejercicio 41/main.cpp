@@ -5,17 +5,17 @@
 using namespace std;
 
 /*
-De un censo realizado en una poblaciÛn se conocen los siguientes datos:
-- DÌa de nacimiento (2 dig.)
+De un censo realizado en una poblaci√≥n se conocen los siguientes datos:
+- D√≠a de nacimiento (2 dig.)
 - Mes (2 dig.)
-- AÒo (4 dig.)
+- A√±o (4 dig.)
 - Sexo ('M'=masc. 'F'=fem.)
-Con estos datos de cada habitante se forma un lote finalizado con un dÌa cero. Desarrollar el
+Con estos datos de cada habitante se forma un lote finalizado con un d√≠a cero. Desarrollar el
 programa que determine e imprima:
-1) Cu·ntos nacimientos hubo en el mes de octubre de todos los aÒos.
-2) Cu·ntos nacimientos hubo antes del 9 de julio de 1990.
-3) Cu·ntos nacimientos de mujeres hubo en la primavera del 1982.
-4) Sexo de la persona m·s vieja (solo existe una).
+1) Cu√°ntos nacimientos hubo en el mes de octubre de todos los a√±os.
+2) Cu√°ntos nacimientos hubo antes del 9 de julio de 1990.
+3) Cu√°ntos nacimientos de mujeres hubo en la primavera del 1982.
+4) Sexo de la persona m√°s vieja (solo existe una).
 */
 
 //Delcaro un struct con los datos que me dicen.
@@ -55,17 +55,17 @@ int buscarNacimientosHastaUnaFecha(int anioBuscado, persona censo[], int tam, in
     }
 
 int buscarNacimientosPrimavera(persona censo[], int tam, int anioBuscado){
-    int nacimientosPrimavera;
-    for(int i = 0; i < tam; i++){
+    int nacimientosPrimavera;//variable contador
+    for(int i = 0; i < tam; i++){//recorro el array
         if((censo[i].anio == anioBuscado)&&
-           ((censo[i].diaNacimiento >= 21 && censo[i].mes == 9)|| (censo[i].mes == 10)|| (censo[i].diaNacimiento <= 30 && censo[i].mes == 11)))
-            nacimientosPrimavera++;
+           ((censo[i].diaNacimiento >= 21 && censo[i].mes == 9)|| (censo[i].mes == 10)|| (censo[i].diaNacimiento <= 30 && censo[i].mes == 11)))//Condiciones para que sea primavera
+            nacimientosPrimavera++;//contador++
     }
     return nacimientosPrimavera;
 };
 char masViejo(persona censo[], int tam){
     char mayor;
-    for(int i = 0; i < tam ; i++){
+    for(int i = 0; i < tam ; i++){//hay 2 for, porque tengo que ir comparando todos los espacios del array entre ellos
         for(int j = 0; j < tam; j++){
             if(censo[i].anio > censo[j].anio)
                 mayor = censo[j].sexo;
@@ -86,12 +86,12 @@ int ingresarDatos(persona censo[]){
     int j = 0;
     do{
             //Pido los datos que figuran el struct.
-        cout<<"Ingrese los datos de la persona n∞: "<< i<<endl;
+        cout<<"Ingrese los datos de la persona n¬∞: "<< i<<endl;
 
         do{
             cout<< "Dia de nacimiento: ";
             cin>>censo[j].diaNacimiento;
-        }while(censo[j].diaNacimiento<0 || censo[j].diaNacimiento >31);//Condiciones para que se ingresen fechas validas.
+        }while(censo[j].diaNacimiento<0 || censo[j].diaNacimiento >31);//Condiciones para que se ingresen fechas validas. Si no, los vuelve a pedir
         cout<<endl;
 
 
@@ -100,7 +100,7 @@ int ingresarDatos(persona censo[]){
             cin>>censo[j].mes;
         }while(censo[j].mes < 0 || censo[j].mes> 12);
         cout<<endl;
-        cout<<"AÒo: ";
+        cout<<"A√±o: ";
         cin>>censo[j].anio;
 
         cout<<endl;
@@ -133,11 +133,11 @@ int ingresarDatos(persona censo[]){
 char menu(){
     char op;
 
-    cout<< "øQue desea hacer con los datos?"<<endl;
-    cout<< "a ñ Buscar Nacimientos en un mes especifico"<<endl;
-    cout<<"b ñ Buscar Nacimientos hasta una determinada fecha"<<endl;
-    cout<<"c ñ Buscar nacimientos de la primavera del aÒo deseado"<<endl;
-    cout<<"d ñ Buscar el sexo de la persona mas vieja"<<endl;
+    cout<< "¬øQue desea hacer con los datos?"<<endl;
+    cout<< "a ‚Äì Buscar Nacimientos en un mes especifico"<<endl;
+    cout<<"b ‚Äì Buscar Nacimientos hasta una determinada fecha"<<endl;
+    cout<<"c ‚Äì Buscar nacimientos de la primavera del a√±o deseado"<<endl;
+    cout<<"d ‚Äì Buscar el sexo de la persona mas vieja"<<endl;
     cout<< "Esc - Salir"<< endl;
     //Este bucle permite ingresar valores hasta que se presione uno de las opciones
     do{
@@ -159,7 +159,7 @@ void seleccionarMes(int &mes){
 }
 void seleccionarAnio(int &anio){
             do{
-            cout<<"Ingrese el aÒo: ";
+            cout<<"Ingrese el a√±o: ";
             cin>>anio;
         }while(1000 > anio && anio >2024);
 };
