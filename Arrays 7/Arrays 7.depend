@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1730825551 source:d:\estudios\utn\1er nivel\algoritmos y estructura de datos\arrays 7\main.cpp
+	<iostream>
+	<conio.h>
+	<cstdlib>
+	<ctime>
+
